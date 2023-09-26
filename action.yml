@@ -1,19 +1,19 @@
-name: 'Setup OpenTofu'
 inputs:
   tofu_version:
-    description: branch, tag, sha to build
-    defaul: main
+    default: main
 runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v3
       with:
         repository: opentofu/opentofu
-        path: tmp
+        path: opentofu
         ref: ${{ inputs.version }}
     - uses: actions/setup-go@v4
+      with:
+        go-version-file: opentofu/go.mod
+        cache-dependency-path: opentofu/go.sum
     - shell: bash
+      working-directory: opentofu
       run: |-
-        cd tmp
-        go build .
-        echo `pwd` >> $GITHUB_PATH
+        go install
