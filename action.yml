@@ -11,7 +11,7 @@ runs:
       with:
         repository: opentofu/opentofu
         path: opentofu
-        ref: ${{ inputs.version }}
+        ref: ${{ inputs.tofu_version }}
     - uses: actions/setup-go@v4
       with:
         go-version-file: opentofu/go.mod
