@@ -1,3 +1,6 @@
+name: 'Setup OpenTofu'
+description: 'Sets up OpenTofu CLI in your GitHub Actions workflow.'
+author: 'm0un10'
 inputs:
   tofu_version:
     default: main
@@ -20,4 +23,6 @@ runs:
         go build -o ./tofu .
         cp ./tofu ${temp_path}
         echo ${temp_path} >> $GITHUB_PATH
-
+branding:
+  icon: 'terminal'
+  color: 'yellow'
