@@ -1,0 +1,19 @@
+name: 'Setup OpenTofu'
+inputs:
+  version:
+    description: branch, tag, sha to build
+    defaul: main
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: opentofu/opentofu
+        path: tmp
+        ref: ${{ inputs.version }}
+    - uses: actions/setup-go@v4
+    - shell: bash
+      run: |-
+        cd tmp
+        go build .
+        echo `pwd` >> $GITHUB_PATH
