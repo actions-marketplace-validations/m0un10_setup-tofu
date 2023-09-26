@@ -10,7 +10,7 @@ The OpenTofu CLI can be installed with a one-liner
 
 ```
 steps:
-- uses: m0un10/setup-tofu@main
+- uses: m0un10/setup-tofu@v1
 - run: tofu --version
 ```
 
@@ -18,7 +18,7 @@ Or, it can build and install from a specific upstream branch of [opentofu](https
 
 ```
 steps:
-- uses: hashicorp/setup-terraform@v2
+- uses: m0un10/setup-tofu@v1
   with:
     tofu_version: feature-branch-x
 ```
