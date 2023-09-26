@@ -16,4 +16,8 @@ runs:
     - shell: bash
       working-directory: opentofu
       run: |-
-        go install
+        temp_path=${RUNNER_TEMP:-/tmp}
+        go build -o ./tofu .
+        cp ./tofu ${temp_path}
+        echo ${temp_path} >> $GITHUB_PATH
+
