@@ -1,6 +1,6 @@
 name: 'Setup OpenTofu'
 inputs:
-  version:
+  tofu_version:
     description: branch, tag, sha to build
     defaul: main
 runs:
